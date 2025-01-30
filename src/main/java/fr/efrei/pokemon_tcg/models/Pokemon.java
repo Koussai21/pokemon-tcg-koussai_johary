@@ -1,39 +1,47 @@
 package fr.efrei.pokemon_tcg.models;
 
+import fr.efrei.pokemon_tcg.constants.TypePokemon;
 import jakarta.persistence.*;
-import java.util.Random;
 
 @Entity
 public class Pokemon {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String uuid;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String uuid;
 
-    @OneToOne
-    private Pokemon pokemon;
+	private String nom;
 
-    private int pv;
+	private Integer niveau;
 
+	@Enumerated(EnumType.STRING)
+	private TypePokemon type;
 
-    public String getUuid() {
-        return uuid;
-    }
+	public String getNom() {
+		return nom;
+	}
 
-    public Pokemon getPokemon() {
-        return pokemon;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-    public void setPokemon(Pokemon pokemon) {
-        this.pokemon = pokemon;
-    }
+	public Integer getNiveau() {
+		return niveau;
+	}
 
-    public int getPv() {
-        return pv;
-    }
+	public void setNiveau(Integer niveau) {
+		this.niveau = niveau;
+	}
 
-    public void setPv(int pv) {
-        this.pv = pv;
-    }
+	public TypePokemon getType() {
+		return type;
+	}
 
+	public void setType(TypePokemon type) {
+		this.type = type;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
 }
