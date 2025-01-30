@@ -1,47 +1,91 @@
 package fr.efrei.pokemon_tcg.models;
 
-import fr.efrei.pokemon_tcg.constants.TypePokemon;
 import jakarta.persistence.*;
+import java.util.Random;
 
 @Entity
 public class Pokemon {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private String uuid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String uuid;
 
-	private String nom;
+    @OneToOne
+    private Pokemon pokemon;
 
-	private Integer niveau;
+    private int pv;
 
-	@Enumerated(EnumType.STRING)
-	private TypePokemon type;
+    private String attaque1;
+    private int degats1;
 
-	public String getNom() {
-		return nom;
-	}
+    private String attaque2;
+    private int degats2;
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    private int rarete;
+    public Pokemon() {
+        this.rarete = genererRareteAleatoire();
+    }
 
-	public Integer getNiveau() {
-		return niveau;
-	}
+    private int genererRareteAleatoire() {
+        return new Random().nextInt(5) + 1};
 
-	public void setNiveau(Integer niveau) {
-		this.niveau = niveau;
-	}
+    public String getUuid() {
+        return uuid;
+    }
 
-	public TypePokemon getType() {
-		return type;
-	}
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
 
-	public void setType(TypePokemon type) {
-		this.type = type;
-	}
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
+    }
 
-	public String getUuid() {
-		return uuid;
-	}
+    public int getPv() {
+        return pv;
+    }
+
+    public void setPv(int pv) {
+        this.pv = pv;
+    }
+
+    public String getAttaque1() {
+        return attaque1;
+    }
+
+    public void setAttaque1(String attaque1) {
+        this.attaque1 = attaque1;
+    }
+
+    public int getDegats1() {
+        return degats1;
+    }
+
+    public void setDegats1(int degats1) {
+        this.degats1 = degats1;
+    }
+
+    public String getAttaque2() {
+        return attaque2;
+    }
+
+    public void setAttaque2(String attaque2) {
+        this.attaque2 = attaque2;
+    }
+
+    public int getDegats2() {
+        return degats2;
+    }
+
+    public void setDegats2(int degats2) {
+        this.degats2 = degats2;
+    }
+
+    public int getRarete() {
+        return rarete;
+    }
+
+    public void setRarete(int rarete) {
+        this.rarete = rarete;
+    }
 }
