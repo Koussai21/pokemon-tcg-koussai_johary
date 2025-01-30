@@ -13,7 +13,7 @@ public class Attaque {
 	
 	private Integer degats;
 	
-	public String nom() {
+	public String getNom() {
 		return nom;
 	}
 
@@ -21,11 +21,15 @@ public class Attaque {
 		this.nom = nom;
 	}
 	
-	public Integer degats() {
+	public Integer getDegats() {
 		return degats;
 	}
 	
-	public void degats(Integer Degats) {
+	public void setdegats(Integer Degats) {
 		this.degats = Degats;
+	}
+	
+	public String getUuid() {
+		return uuid;
 	}
 }
