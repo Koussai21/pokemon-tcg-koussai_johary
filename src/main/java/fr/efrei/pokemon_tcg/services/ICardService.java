@@ -1,21 +1,21 @@
 package fr.efrei.pokemon_tcg.services;
 
 import fr.efrei.pokemon_tcg.constants.TypePokemon;
-import fr.efrei.pokemon_tcg.controllers.PokemonController;
-import fr.efrei.pokemon_tcg.dto.CreatePokemon;
+import fr.efrei.pokemon_tcg.controllers.CardController;
+import fr.efrei.pokemon_tcg.dto.CreateCard;
 import fr.efrei.pokemon_tcg.models.Card;
 
 import java.util.List;
 
 public interface ICardService {
 
-	List<Pokemon> findAll(TypePokemon type);
+	List<Card> findAll(TypePokemon type);
 
-	Pokemon findById(String uuid);
+	Card findById(String uuid);
 
-	void create(CreatePokemon pokemon);
+	void create(CreateCard card);
 
-	boolean update(String uuid, Pokemon pokemon);
+	boolean update(String uuid, Card cards);
 
 	boolean delete(String uuid);
 }
